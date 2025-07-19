@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vegera Visual</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon_io/favicon-32x32.png"
+    />
+    <link rel="icon" type="image/x-icon" href="./img/favicon_io/favicon.ico" />
+  </head>
+
+  <body class="container">
+    <button id="scrollToTop" title="Back to top">↑</button>
+    <header class="top-nav">
+      <!-- <img src="./img/favicon.ico" alt="Vegera Visual logo" class="logo" /> -->
+
+      <button class="burger" aria-label="Toggle menu">☰</button>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="overlay">
+          <h1 class="hero-text">
+            <span class="line"
+              >Moments in <span class="highlight">Motion</span>.</span
+            ><br />
+            <span class="line"
+              >Stories in <span class="highlight">Light</span>.</span
+            >
+          </h1>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div class="about-content">
+          <img
+            src="./img/me.jpg"
+            alt="Photographer Tetiana Vegera"
+            class="about-photo"
+          />
+          <div>
+            <h2>About Me</h2>
+            <p>
+              Hello! I'm Tetiana Vegera — a passionate photographer capturing
+              stories in motion and light. I specialize in dance, children,
+              family, and love stories. Each frame is a moment preserved with
+              care and creativity.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="portfolio-preview">
+        <h2>Preview</h2>
+        <div class="gallery">
+          <div class="photo-box">
+            <img src="./img/IMG_7733.jpg" alt="Preview 1" />
+          </div>
+          <div class="photo-box">
+            <img src="./img/IMG_7135.jpg" alt="Preview 2" />
+          </div>
+          <div class="photo-box">
+            <img src="./img/IMG_7403.jpg" alt="Preview 3" />
+          </div>
+        </div>
+        <div class="see-more">
+          <a href="portfolio.html">→ View Full Portfolio</a>
+        </div>
+      </section>
+
+      <section id="pricing" class="pricing">
+        <h2>Pricing</h2>
+        <ul>
+          <li>📸 Mini Session (30 min, 20 photos) – £60</li>
+          <li>📸 Full Session (1 hour, 40+ photos) – £120</li>
+          <li>👨‍👩‍👧 Family Photoshoot (1.5 hr, 50+ photos) – £150</li>
+          <li>🎈 Children Session (40 min, 25+ photos) – £100</li>
+          <li>🎭 Event Coverage (2 hours, all best shots) – £180</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <footer class="site-footer">
+        <div class="footer-content">
+          <div class="contact-info">
+            <p>
+              📧
+              <a href="mailto:vegeravisual@example.com"
+                >vegeravisual@example.com</a
+              ><br />
+              ☎️ <a href="tel:+447700900123">+44 7700 900123</a><br />
+              📷
+              <a href="https://www.instagram.com/vegeravisual" target="_blank"
+                >Instagram</a
+              ><br />
+              🖼️
+              <a href="https://vegeravisual.pixieset.com" target="_blank"
+                >Pixieset Portfolio</a
+              >
+            </p>
+          </div>
+        </div>
+        <p>© 2025 Vegera Visual</p>
+      </footer>
+    </footer>
+  </body>
+  <script>
+    const burger = document.querySelector(".burger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    burger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  </script>
+  <script>
+    const scrollBtn = document.getElementById("scrollToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  </script>
+</html>
