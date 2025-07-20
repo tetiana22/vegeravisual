@@ -11,12 +11,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <button id="scrollToTop" title="Back to top">↑</button>
     <header class="top-nav">
-      <img src="./img/logo.jpg" alt="Vegera Visual logo" class="logo" />
-      <nav>
+      <img
+        src="./img/vegera-logo-32x32-white.png"
+        alt="Vegera Visual logo"
+        class="logo"
+      />
+
+      <button class="burger" aria-label="Toggle menu">☰</button>
+
+      <nav class="nav-menu">
         <ul>
+          <li><a href="index.html#home">Home</a></li>
           <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html">Home</a></li>
           <li><a href="index.html#pricing">Pricing</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
@@ -26,47 +34,65 @@
     <main class="portfolio-page">
       <h1>Full Portfolio</h1>
 
-      <!-- Category: Family -->
+      <!-- Only Dance Performances -->
       <section class="category">
-        <h2>👨‍👩‍👧 Family Sessions</h2>
-        <div class="photo-grid">
-          <img src="./img/family1.jpg" alt="Family 1" />
-          <img src="./img/family2.jpg" alt="Family 2" />
-          <img src="./img/family3.jpg" alt="Family 3" />
+        <h2 class="collection">🎭 Dance Performances</h2>
+        <div class="masonry-gallery">
+          <img src="./img/IMG_7733.jpg" alt="Dance 1" />
+          <img src="./img/IMG_7685.jpg" alt="Dance 2" />
+          <img src="./img/IMG_7682.jpg" alt="Dance 3" />
+          <img src="./img/IMG_7679.jpg" alt="Dance 4" />
+          <img src="./img/IMG_7413.jpg" alt="Dance 5" />
+          <img src="./img/IMG_7403.jpg" alt="Dance 6" />
+          <img src="./img/IMG_7324.jpg" alt="Dance 7" />
+          <img src="./img/IMG_7312.jpg" alt="Dance 8" />
+          <img src="./img//IMG_7248.jpg" alt="Dance 9" />
+          <img src="./img/IMG_7227.jpg" alt="Dance 10" />
+          <img src="./img/IMG_7135.jpg" alt="Dance 11" />
+          <img src="./img/IMG_7102.jpg" alt="Dance 12" />
         </div>
       </section>
-
-      <!-- Category: Kids -->
-      <section class="category">
-        <h2>🎈 Children</h2>
-        <div class="photo-grid">
-          <img src="./img/kids1.jpg" alt="Kid 1" />
-          <img src="./img/kids2.jpg" alt="Kid 2" />
-          <img src="./img/kids3.jpg" alt="Kid 3" />
+      <!-- <section class="category">
+        <h2 class="collection">🎭 Dance Performances</h2>
+        <div class="masonry-grid">
+          <div class="masonry-item tall">
+            <img src="./img/IMG_7733.jpg" alt="Dance 1" />
+          </div>
+          <div class="masonry-item">
+            <img src="./img/IMG_7685.jpg" alt="Dance 2" />
+          </div>
+          <div class="masonry-item wide">
+            <img src="./img/IMG_7682.jpg" alt="Dance 3" />
+          </div>
+          <div class="masonry-item">
+            <img src="./img/IMG_7679.jpg" alt="Dance 4" />
+          </div>
+      
+          <div class="masonry-item">
+            <img src="./img/IMG_7413.jpg" alt="Dance 6" />
+          </div>
+          <div class="masonry-item tall">
+            <img src="./img/IMG_7403.jpg" alt="Dance 1" />
+          </div>
+          <div class="masonry-item tall">
+            <img src="./img/IMG_7324.jpg" alt="Dance 1" />
+          </div>
+          <div class="masonry-item tall">
+            <img src="./img/IMG_7312.jpg" alt="Dance 1" />
+          </div>
         </div>
-      </section>
-
-      <!-- Category: Love Story -->
-      <section class="category">
-        <h2>💑 Love Story</h2>
-        <div class="photo-grid">
-          <img src="./img/love1.jpg" alt="Love 1" />
-          <img src="./img/love2.jpg" alt="Love 2" />
-          <img src="./img/love3.jpg" alt="Love 3" />
-        </div>
-      </section>
-      <section class="category">
-        <h2>🎭 Event Coverage</h2>
-        <div class="photo-grid">
-          <img src="./img/love1.jpg" alt="Love 1" />
-          <img src="./img/love2.jpg" alt="Love 2" />
-          <img src="./img/love3.jpg" alt="Love 3" />
-        </div>
-      </section>
+      </section> -->
     </main>
-
-    <footer>
+    <div class="footer-bottom">
       <p>© 2025 Vegera Visual</p>
-    </footer>
+    </div>
   </body>
+  <script>
+    const burger = document.querySelector(".burger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    burger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  </script>
 </html>
