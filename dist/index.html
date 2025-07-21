@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vegera Visual</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32x32-BXSFyvWa.png"
+    />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-CJq5jOK8.ico" />
+    <link rel="stylesheet" crossorigin href="/assets/style-MJG_6UAj.css">
+  </head>
+
+  <body class="container">
+    <button id="scrollToTop" title="Back to top">↑</button>
+    <header class="top-nav">
+      <img
+        src="/assets/logo-BisvJAFX.jpeg"
+        alt="Vegera Visual logo"
+        class="logo"
+        size="32"
+      />
+
+      <button class="burger" aria-label="Toggle menu">☰</button>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="overlay">
+          <h1 class="hero-text">
+            <span class="line"
+              >Moments in <span class="highlight">Motion</span>.</span
+            ><br />
+            <span class="line"
+              >Stories in <span class="highlight">Light</span>.</span
+            >
+          </h1>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div class="about-content">
+          <img
+            src="/assets/about-Dc69dgsn.jpeg"
+            alt="Photographer Tetiana Vegera"
+            class="about-photo"
+          />
+          <div>
+            <h2>About Me</h2>
+            <p>
+              Hello! I’m Tetiana Vegera — a photographer capturing movement,
+              emotion, and story through light. I specialise in live
+              performances, dance events, children’s shows, and dynamic
+              portraits. Whether it’s the backstage chaos, graceful motion on
+              stage, or the quiet sparkle in a child’s eyes — I’m there to frame
+              it all with heart and intention.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="portfolio-preview">
+        <h2>Preview</h2>
+        <div class="gallery">
+          <div class="photo-box">
+            <img src="/assets/IMG_7733-DlX0PYA5.jpg" alt="Preview 1" />
+          </div>
+          <div class="photo-box">
+            <img src="/assets/IMG_7135-DY2_fcuJ.jpg" alt="Preview 2" />
+          </div>
+          <div class="photo-box">
+            <img src="/assets/IMG_7403-7T-3Z4VI.jpg" alt="Preview 3" />
+          </div>
+        </div>
+        <div class="see-more">
+          <a href="portfolio.html">→ View Full Portfolio</a>
+        </div>
+      </section>
+
+      <section id="pricing" class="pricing-list">
+        <h2>Pricing</h2>
+        <ul>
+          <li>
+            📸 <strong>Performance Coverage</strong> (up to 1 hour, 40+ edited
+            photos) – <span class="price">£120</span>
+          </li>
+          <li>
+            ⚽ <strong>Sports Event</strong> (up to 1.5 hours, all best action
+            shots) – <span class="price">£160</span>
+          </li>
+          <li>
+            🎭 <strong>Stage Performance</strong> (2 hours, backstage & stage
+            highlights) – <span class="price">£180</span>
+          </li>
+          <li>
+            👟 <strong>Dynamic Portraits</strong> (motion-inspired, 45 min, 25+
+            photos) – <span class="price">£100</span>
+          </li>
+          <li>
+            🌟 <strong>Festival / Show Coverage</strong> (2–3 hours,
+            storytelling gallery) – <span class="price">£220</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-wrapper">
+        <div class="two-column-footer">
+          <div class="footer-left">
+            <h4>Contact</h4>
+            <a href="mailto:tetiana80@yahoo.com">tetiana80@yahoo.com</a><br />
+            <a href="tel:+44 7467720136">+44 7467720136</a>
+          </div>
+
+          <div class="footer-right">
+            <h4>Follow</h4>
+            <a href="https://www.instagram.com/vegeravisual" target="_blank"
+              >Instagram</a
+            ><br />
+            <a href="https://vegera.pixieset.com" target="_blank"
+              >Pixieset Portfolio</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Vegera Visual</p>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const burger = document.querySelector(".burger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    burger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  </script>
+  <script>
+    const scrollBtn = document.getElementById("scrollToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  </script>
+</html>
