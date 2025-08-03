@@ -237,7 +237,50 @@ a:hover {
   color: #f9c84d;
   letter-spacing: 2px;
 }
+.pricing {
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+  font-family: "Arial", sans-serif;
+  color: #eee;
+  background-color: #111;
+}
 
+.pricing h2 {
+  color: #f9c84d;
+  margin-bottom: 1rem;
+}
+
+.pricing details {
+  border-left: 4px solid #f9c84d;
+  background-color: #1c1c1c;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pricing summary {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  list-style: none;
+}
+
+.pricing summary::marker {
+  display: none;
+}
+
+.pricing p {
+  margin: 0.5rem 0 0;
+  color: #ccc;
+}
+
+.travel-note {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #aaa;
+}
 /* Masonry-style layout */
 .masonry-grid {
   display: grid;
