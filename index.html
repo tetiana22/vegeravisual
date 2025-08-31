@@ -208,15 +208,24 @@
       <!-- Contact -->
       <section id="contact" class="contact">
         <h2>Contact</h2>
-        <form id="contact-form" novalidate>
-          <input type="text" name="name" placeholder="Name*" required />
-          <input type="email" name="email" placeholder="Email*" required />
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/mgvlylol"
+          method="POST"
+        >
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
           <input type="text" name="subject" placeholder="Subject / Event" />
           <textarea
             name="message"
             rows="5"
-            placeholder="Tell me about your event or session…"
+            placeholder="Tell me about your event or session..."
+            required
           ></textarea>
+
+          <!-- honeypot (анти-спам) -->
+          <input type="text" name="_gotcha" style="display: none" />
+
           <button type="submit" class="btn">Send enquiry</button>
           <p class="status" role="status" aria-live="polite"></p>
         </form>
@@ -226,6 +235,12 @@
           <a href="mailto:tetiana80@yahoo.com">tetiana80@yahoo.com</a> · +44
           7467720136
         </p>
+        <script>
+          if (location.hash === "#thanks") {
+            const el = document.getElementById("thanks");
+            if (el) el.hidden = false;
+          }
+        </script>
       </section>
     </main>
 
