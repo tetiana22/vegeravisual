@@ -24,8 +24,30 @@
 
   <body>
     <header class="site-nav">
-      <a class="brand" href="/">Vegera Visual</a>
-      <nav>
+      <a class="brand" href="/">
+        <img
+          src="/img/logo.jpeg"
+          alt="Vegera Visual logo"
+          class="brand__icon"
+        />
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link is-active" data-cat="performances">Performances</a>
+        <a class="nav-link" data-cat="festivals">Festivals</a>
+        <a class="nav-link" data-cat="family">Family/Individual</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+      <button
+        class="burger"
+        aria-label="Open menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <div class="backdrop" hidden></div>
+      <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile" hidden>
         <a class="nav-link is-active" data-cat="performances">Performances</a>
         <a class="nav-link" data-cat="festivals">Festivals</a>
         <a class="nav-link" data-cat="family">Family/Individual</a>
@@ -243,21 +265,32 @@
         </script>
       </section>
     </main>
-
     <footer class="site-footer">
       <p>© <span id="year"></span> Vegera Visual</p>
-      <p>
+      <div class="social-links">
         <a
-          href="https://www.instagram.com/vegeravisual"
+          href="https://www.tiktok.com/@vegeravisual"
           target="_blank"
           rel="noopener"
-          >Instagram</a
         >
-        ·
-        <a href="https://vegera.pixieset.com/" target="_blank" rel="noopener"
-          >Pixieset</a
-        >
-      </p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+              fill="currentColor"
+              d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.4a162.41,162.41,0,1,1-141.5-160.7v90.07a72.52,72.52,0,1,0,50.41,69.28V0h91.09A119.47,119.47,0,0,0,448,119.47Z"
+            />
+          </svg>
+          TikTok
+        </a>
+        <a href="https://vegera.pixieset.com/" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path
+              fill="currentColor"
+              d="M572.52 82.24 500.48 8a27.48 27.48 0 0 0-38.88 0l-39.26 39.2L505.32 130l67.2-47.68a27.48 27.48 0 0 0 0-38.88ZM421.14 128 192 357.12V448h90.88L495.86 234.72ZM0 456.69V512h55.31l289.26-289.26-55.31-55.31Z"
+            />
+          </svg>
+          Pixieset
+        </a>
+      </div>
     </footer>
 
     <dialog id="lightbox">
