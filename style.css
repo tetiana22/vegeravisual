@@ -1,510 +1,301 @@
-/* ===== BASE STYLES ===== */
+/* ==== THEME =============================================================== */
+:root {
+  --bg: #0a0a0a; /* основний фон (глибокий чорний) */
+  --surface: #101010; /* поверхні/карти */
+  --text: #f5f5f5; /* основний текст */
+  --muted: #b8b8b8; /* другорядний текст */
+  --edge: #1b1b1b; /* лінії/рамки */
+  --accent: #ffd54f; /* ТЕПЛИЙ ЖОВТИЙ */
+  --accent-ghost: rgba(255, 213, 79, 0.15);
+  --radius: 12px;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* базова типографіка */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
-
+html,
 body {
-  background: #000;
-  color: #fff;
-  font-family: "Playfair Display", serif;
-  line-height: 1.6;
-  padding-bottom: 80px;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 "Nunito Sans", system-ui, -apple-system, Segoe UI, Roboto,
+    Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
-
+img {
+  max-width: 100%;
+  display: block;
+}
 a {
-  color: #f9c84d;
+  color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
+}
+p {
+  margin: 0 0 12px;
+}
+small,
+.small {
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 
-a:hover {
-  color: #fff;
-}
-
-/* ===== NAVIGATION ===== */
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: #111;
-  border-bottom: 2px solid #f9c84d;
+/* ==== NAV ================================================================ */
+.site-nav {
   position: sticky;
   top: 0;
-  z-index: 999;
-}
-
-.logo {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
-.nav-menu ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-.nav-menu a {
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.burger {
-  display: none;
-  font-size: 28px;
-  background: none;
-  color: #f9c84d;
-  border: none;
-  cursor: pointer;
-  margin-left: auto;
-}
-
-/* ===== HERO ===== */
-.hero {
-  position: relative;
-  height: 85vh;
-  background: url("./img/pexels-derice-jason-fahnkow-745824-1595241.jpg")
-    no-repeat center/cover;
+  z-index: 40;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.overlay {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 40px;
-}
-
-.hero-text {
-  font-size: 2.4rem;
-  color: #fff;
-}
-
-.line {
-  display: block;
-  margin: 10px 0;
-}
-
-.highlight {
-  color: #f9c84d;
-  text-shadow: 0 0 10px #f9c84d;
-}
-
-/* ===== ABOUT ===== */
-.about {
-  padding: 60px 20px;
-  background: #111;
-}
-
-.about-content {
-  display: flex;
-  flex-direction: column; /* за замовчуванням — вертикально */
-  flex-wrap: wrap;
-  gap: 30px;
-  max-width: 1000px;
-  margin: auto;
-  align-items: center;
-  text-align: center;
-}
-
-.about-photo {
-  width: 250px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(249, 200, 77, 0.3);
-}
-
-/* Стиль заголовка */
-.about-content h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #f9c84d;
-}
-
-/* Медіа-запит для екранів більше 768px */
-@media (min-width: 768px) {
-  .about-content {
-    flex-direction: row; /* розміщення в рядок */
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .about-content > div {
-    flex: 1;
-  }
-  .logo {
-    width: 70px;
-    height: 70px;
-  }
-}
-
-/* ===== PORTFOLIO PREVIEW ===== */
-.portfolio-preview {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.gallery {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.photo-box {
-  width: 280px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
-}
-
-.photo-box img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.4s;
-}
-
-.photo-box img:hover {
-  transform: scale(1.05);
-}
-
-.see-more {
-  margin-top: 30px;
-  font-size: 1.1rem;
-}
-
-/* ===== PRICING ===== */
-.pricing-list {
-  padding: 60px 20px;
-  max-width: 800px;
-  margin: auto;
-}
-
-.pricing-list h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #f9c84d;
-}
-
-.pricing-list ul {
-  list-style: none;
-  padding: 0;
-}
-
-.pricing-list li {
-  margin-bottom: 20px;
-  padding: 20px;
-  background: #1e1e1e;
-  border-left: 4px solid #f9c84d;
-  border-radius: 10px;
-  box-shadow: 0 2px 15px rgba(255, 255, 255, 0.05);
-  font-size: 1.05rem;
-  position: relative;
-}
-
-.pricing-list strong {
-  color: #fff;
-  font-weight: 600;
-}
-
-.price {
-  font-weight: bold;
-  color: #f9c84d;
-  font-size: 1.2rem;
-  display: inline-block;
-  margin-top: 8px;
-  animation: glow 1.8s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 6px #f9c84d;
-  }
-  to {
-    text-shadow: 0 0 14px #f9c84d, 0 0 20px #fff3a0;
-  }
-}
-
-.collection {
-  text-align: center;
-  font-size: 2rem;
-  margin: 40px 0 20px;
-  color: #f9c84d;
-  letter-spacing: 2px;
-}
-.pricing {
-  max-width: 700px;
-  margin: auto;
-  padding: 2rem;
-  font-family: "Arial", sans-serif;
-  color: #eee;
-  background-color: #111;
-}
-
-.pricing h2 {
-  color: #f9c84d;
-  margin-bottom: 1rem;
-}
-
-.pricing details {
-  border-left: 4px solid #f9c84d;
-  background-color: #1c1c1c;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.pricing summary {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #fff;
-  list-style: none;
-}
-
-.pricing summary::marker {
-  display: none;
-}
-
-.pricing p {
-  margin: 0.5rem 0 0;
-  color: #ccc;
-}
-
-.travel-note {
-  margin-top: 2rem;
-  font-size: 0.95rem;
-  color: #aaa;
-}
-/* Masonry-style layout */
-.masonry-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 0 20px;
-}
-
-.masonry-gallery {
-  column-count: 3;
-  column-gap: 20px;
-  padding: 20px;
-}
-
-.masonry-gallery img {
-  width: 100%;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  display: block;
-  break-inside: avoid;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.04);
-}
-
-.masonry-gallery img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 10px #f9c84d, 0 0 20px #ffea8a;
-}
-
-/* Responsive columns */
-@media (max-width: 1024px) {
-  .masonry-gallery {
-    column-count: 2;
-  }
-}
-@media (max-width: 600px) {
-  .masonry-gallery {
-    column-count: 1;
-  }
-}
-
-/* ===== FOOTER ===== */
-.site-footer {
-  background: #111;
-  padding: 40px 20px;
-  text-align: center;
-  color: #aaa;
-  font-size: 0.95rem;
-  border-top: 1px solid #333;
-}
-
-.footer-content a {
-  color: #aaa;
-}
-
-.footer-content a:hover {
-  color: #fff;
-}
-
-.two-column-footer a {
-  color: #aaa;
-  text-decoration: none;
-}
-
-.two-column-footer a:hover {
-  text-decoration: underline;
-}
-
-.footer-bottom {
-  width: 100%;
-  text-align: center;
-  border-top: 1px solid #333;
-  padding-top: 15px;
-  margin-top: 20px;
-}
-.footer-wrapper {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 20px;
-}
-
-.two-column-footer {
-  display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  color: #f9c84d;
-  padding: 30px 0;
-  font-size: 0.95rem;
-  gap: 20px;
+  gap: 24px;
+  padding: 14px 22px;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--edge);
 }
-
-.footer-left,
-.footer-right {
-  width: 45%;
-  margin-bottom: 20px;
-
-  text-align: center;
+.brand {
+  font: 700 20px/1 "Playfair Display", serif;
+  letter-spacing: 0.4px;
 }
-
-.footer-bottom {
-  width: 100%;
-  text-align: center;
-  border-top: 1px solid #333;
-  padding-top: 15px;
-  margin-top: 20px;
-  color: #aaa;
-  font-size: 0.85rem;
+.site-nav nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
-/* Мобільна адаптація */
-@media (max-width: 768px) {
-  .footer-left,
-  .footer-right {
-    width: 100%;
-    text-align: center;
-  }
-}
-/* ===== SCROLL TO TOP BUTTON ===== */
-#scrollToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  padding: 12px 16px;
-  font-size: 20px;
-  background-color: #000;
-  color: #f9c84d;
-  border: 2px solid #f9c84d;
-  border-radius: 50%;
+.nav-link {
+  position: relative;
+  padding: 6px 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
   cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 1000;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
-
-#scrollToTop.show {
-  opacity: 0.7;
-  pointer-events: auto;
-}
-
-#scrollToTop:hover {
+.nav-link:hover {
+  color: var(--accent);
   opacity: 1;
 }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nav-menu ul {
-    flex-direction: column;
-    gap: 10px;
-    background: #111;
-    padding: 15px;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-
-    display: none;
-  }
-
-  .nav-menu.active ul {
-    display: flex;
-  }
-
-  .burger {
-    display: block;
-  }
-
-  .hero-text {
-    font-size: 1.8rem;
-  }
-
-  .gallery {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .photo-box {
-    width: 90%;
-  }
+.nav-link.is-active {
+  opacity: 1;
 }
-.photo-box {
-  position: relative;
-  width: 280px;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
-}
-
-.photo-box img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.photo-box:hover img {
-  transform: scale(1.05);
-}
-
-/* Підсвітка при наведенні */
-.photo-box::after {
+.nav-link.is-active::after {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 10px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(249, 200, 77, 0.15) 0%,
-    transparent 80%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-ghost);
 }
 
-.photo-box:hover::after {
-  opacity: 1;
+/* ==== HERO =============================================================== */
+.hero {
+  padding: 80px 22px 28px;
+  max-width: 980px;
+  margin: auto;
+  text-align: center;
 }
-.photo-box:hover {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15),
-    0 0 35px rgba(255, 255, 255, 0.08);
+.hero h1 {
+  font: 700 48px/1.1 "Playfair Display", serif;
+  margin: 0 0 10px;
+  color: var(--accent);
+  text-shadow: 0 0 22px var(--accent-ghost);
+}
+.hero .muted {
+  color: var(--muted);
+}
+
+/* ==== BUTTONS ============================================================ */
+.btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: #101010;
+  font-weight: 800;
+  padding: 11px 18px;
+  border-radius: 999px;
+  transition: transform 0.18s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 6px var(--accent-ghost), 0 10px 26px rgba(0, 0, 0, 0.35);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ==== GALLERIES (masonry через CSS columns) ============================= */
+.gallery-wrap {
+  max-width: 1200px;
+  margin: auto;
+  padding: 26px 14px 12px;
+}
+.grid {
+  columns: 1;
+  column-gap: 14px;
+  display: none;
+}
+.grid.is-visible {
+  display: block;
+}
+@media (min-width: 700px) {
+  .grid {
+    columns: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .grid {
+    columns: 3;
+  }
+}
+
+.tile {
+  position: relative;
+  break-inside: avoid;
+  display: block;
+  margin: 0 0 14px;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  transition: transform 0.45s ease, box-shadow 0.45s ease,
+    border-color 0.25s ease, filter 0.25s ease;
+}
+.tile img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1.05) saturate(1.02) brightness(0.98);
+  transition: transform 0.6s ease;
+}
+.tile:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 0 10px var(--accent-ghost), var(--shadow);
+  border-color: rgba(255, 213, 79, 0.45);
+}
+.tile:hover img {
+  transform: scale(1.05);
+}
+.tile.wide img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.tile.tall img {
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
+/* невеликий “shine” при ховері */
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: -40% -40% auto auto;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 213, 79, 0.18),
+    transparent 60%
+  );
+  transform: translate3d(0, 0, 0) rotate(12deg);
+}
+/* ==== CONTACT FORM ================================================== */
+.contact {
+  max-width: 760px;
+  margin: 70px auto;
+  padding: 0 22px;
+  text-align: center;
+}
+.contact h2 {
+  font: 700 32px/1.2 "Playfair Display", serif;
+  margin: 0 0 20px;
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent-ghost);
+}
+#contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 18px;
+  background: rgba(20, 20, 20, 0.65);
+  border: 1px solid rgba(255, 213, 79, 0.25);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 0 6px var(--accent-ghost);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.8s ease forwards;
+}
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font: 600 1rem "Nunito Sans", sans-serif;
+  color: var(--text);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+#contact-form textarea {
+  grid-column: 1/-1;
+  min-height: 140px;
+  resize: vertical;
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-ghost);
+  transform: translateY(-2px);
+  outline: none;
+}
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #aaa;
+  font-weight: 400;
+  font-style: italic;
+}
+
+#contact-form button.btn {
+  grid-column: 1/-1;
+  margin-top: 8px;
+  padding: 14px 20px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent) 0%, #ffb300 100%);
+  color: #111;
+  transition: all 0.3s ease;
+}
+#contact-form button.btn:hover {
+  box-shadow: 0 0 18px rgba(255, 213, 79, 0.6);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.status {
+  grid-column: 1/-1;
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+/* ==== ANIMATION ===================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

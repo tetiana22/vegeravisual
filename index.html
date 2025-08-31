@@ -15,218 +15,239 @@
       sizes="32x32"
       href="./img/favicon_io/favicon-32x32.png"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" type="image/x-icon" href="./img/favicon_io/favicon.ico" />
   </head>
 
-  <body class="container">
-    <button id="scrollToTop" title="Back to top">↑</button>
-    <header class="top-nav">
-      <img
-        src="./img/logo.jpeg"
-        alt="Vegera Visual logo"
-        class="logo"
-        size="32"
-      />
-
-      <button class="burger" aria-label="Toggle menu">☰</button>
-
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+  <body>
+    <header class="site-nav">
+      <a class="brand" href="/">Vegera Visual</a>
+      <nav>
+        <a class="nav-link is-active" data-cat="performances">Performances</a>
+        <a class="nav-link" data-cat="festivals">Festivals</a>
+        <a class="nav-link" data-cat="family">Family/Individual</a>
+        <a class="nav-link" href="#contact">Contact</a>
       </nav>
     </header>
 
     <main>
+      <!-- HERO -->
       <section class="hero">
-        <div class="overlay">
-          <h1 class="hero-text">
-            <span class="line"
-              >Moments in <span class="highlight">Motion</span>.</span
-            ><br />
-            <span class="line"
-              >Stories in <span class="highlight">Light</span>.</span
-            >
-          </h1>
+        <h1>Live events. Movement. Real moments.</h1>
+        <p class="muted">
+          Nottinghamshire-based photographer focused on performance, dance
+          schools, theatre & portraits.
+        </p>
+      </section>
+
+      <!-- GALLERIES -->
+      <section id="galleries" class="gallery-wrap">
+        <!-- Performances (твоя сцена/театр) -->
+        <div
+          class="grid is-visible"
+          data-cat="performances"
+          aria-label="Performances gallery"
+        >
+          <a href="/img/perfomence1.jpg" class="tile"
+            ><img
+              src="/img/perfomence1.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence2.jpg" class="tile"
+            ><img
+              src="/img/perfomence2.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence3.jpg" class="tile"
+            ><img
+              src="/img/perfomence3.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence4.jpg" class="tile"
+            ><img
+              src="/img/perfomence4.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence5.jpg" class="tile"
+            ><img
+              src="/img/perfomence5.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence6.jpg" class="tile"
+            ><img
+              src="/img/perfomence6.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+        </div>
+
+        <div class="grid" data-cat="festivals" aria-label="Festivals show">
+          <a href="/img/festival1.jpg" class="tile"
+            ><img
+              src="/img/festival1.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+          <a href="/img/festival2.jpg" class="tile"
+            ><img
+              src="/img/festival2.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+          <a href="/img/festival3.jpg" class="tile"
+            ><img
+              src="/img/festival3.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+          <a href="/img/festival4.jpg" class="tile"
+            ><img
+              src="/img/festival4.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+          <a href="/img/festival5.jpg" class="tile"
+            ><img
+              src="/img/festival5.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+          <a href="/img/festival6.jpg" class="tile"
+            ><img
+              src="/img/festival6.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+          <a href="/img/festival7.jpg" class="tile"
+            ><img
+              src="/img/festival7.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+          <a href="/img/festival8.jpg" class="tile"
+            ><img
+              src="/img/festival8.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+          <a href="/img/festival9.jpg" class="tile"
+            ><img
+              src="/img/festival9.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+          <a href="/img/festival10.jpg" class="tile"
+            ><img
+              src="/img/festival10.jpg"
+              loading="lazy"
+              alt="Live lights silhouette"
+          /></a>
+        </div>
+
+        <!-- Portraits (тимчасово 1–2 кадри зі сцени — заміниш портретами) -->
+        <div class="grid" data-cat="family" aria-label="Portraits gallery">
+          <a href="/img/family1.jpg" class="tile tall"
+            ><img
+              src="/img/family1.jpg"
+              loading="lazy"
+              alt="Intimate moment on stage"
+          /></a>
+          <a href="/img/family2.jpg" class="tile tall"
+            ><img
+              src="/img/family2.jpg"
+              loading="lazy"
+              alt="Intimate moment on stage"
+          /></a>
+          <a href="/img/family3.jpg" class="tile tall"
+            ><img
+              src="/img/family3.jpg"
+              loading="lazy"
+              alt="Intimate moment on stage"
+          /></a>
+          <a href="/img/family4.jpg" class="tile tall"
+            ><img
+              src="/img/family4.jpg"
+              loading="lazy"
+              alt="Intimate moment on stage"
+          /></a>
+          <a href="/img/family6.jpg" class="tile tall"
+            ><img
+              src="/img/family6.jpg"
+              loading="lazy"
+              alt="Intimate moment on stage"
+          /></a>
+          <a href="/img/family5.jpg" class="tile tall"
+            ><img
+              src="/img/family5.jpg"
+              loading="lazy"
+              alt="Intimate moment on stage"
+          /></a>
         </div>
       </section>
 
-      <section id="about" class="about">
-        <div class="about-content">
-          <img
-            src="./img/about.jpeg"
-            alt="Photographer Tetiana Vegera"
-            class="about-photo"
-          />
-          <div>
-            <h2>About Me</h2>
-            <p>
-              Hello! I’m Tetiana Vegera — a photographer capturing movement,
-              emotion, and story through light. I specialise in live
-              performances, dance events, children’s shows, and dynamic
-              portraits. Whether it’s the backstage chaos, graceful motion on
-              stage, or the quiet sparkle in a child’s eyes — I’m there to frame
-              it all with heart and intention.
-            </p>
-          </div>
-        </div>
+      <!-- About -->
+      <section class="about">
+        <p>
+          <strong>Vegera Visual</strong> — I photograph movement and connection:
+          theatre, dance schools, festivals, and real-life portraits. Minimal
+          direction, clean delivery, cinematic grading.
+        </p>
+        <p class="muted">
+          Based in Nottinghamshire · Available across the East Midlands
+        </p>
       </section>
 
-      <section id="portfolio" class="portfolio-preview">
-        <h2>Preview</h2>
-        <div class="gallery">
-          <div class="photo-box">
-            <img src="./img/IMG_7733.jpg" alt="Preview 1" />
-          </div>
-          <div class="photo-box">
-            <img src="./img/IMG_7135.jpg" alt="Preview 2" />
-          </div>
-          <div class="photo-box">
-            <img src="./img/IMG_7403.jpg" alt="Preview 3" />
-          </div>
-        </div>
-        <div class="see-more">
-          <a href="portfolio.html">→ View Full Portfolio</a>
-        </div>
-      </section>
-
-      <!-- <section id="pricing" class="pricing-list">
-        <h2>Pricing</h2>
-        <ul>
-          <li>
-            📸 <strong>Performance Coverage</strong> (up to 1 hour, 40+ edited
-            photos) – <span class="price">£120</span>
-          </li>
-          <li>
-            ⚽ <strong>Sports Event</strong> (up to 1.5 hours, all best action
-            shots) – <span class="price">£160</span>
-          </li>
-          <li>
-            🎭 <strong>Stage Performance</strong> (2 hours, backstage & stage
-            highlights) – <span class="price">£180</span>
-          </li>
-          <li>
-            👟 <strong>Dynamic Portraits</strong> (motion-inspired, 45 min, 25+
-            photos) – <span class="price">£100</span>
-          </li>
-          <li>
-            🌟 <strong>Festival / Show Coverage</strong> (2–3 hours,
-            storytelling gallery) – <span class="price">£220</span>
-          </li>
-        </ul>
-      </section> -->
-      <section class="pricing">
-        <h2>📸 Vegera Visual – Photography Packages</h2>
-        <p><em>Based in Nottinghamshire | Artistic. Emotive. Real.</em></p>
-
-        <details>
-          <summary>🌟 Festival / Show Coverage – from £180</summary>
-          <p>
-            2–3 hrs full event coverage (dance schools, showcases, festivals)<br />
-            60+ edited images | Crowd, details & atmosphere | Colour + B&W
-            gallery
-          </p>
-        </details>
-
-        <details>
-          <summary>🎭 Stage Performance – £150</summary>
-          <p>
-            Up to 2 hrs of performance & backstage action<br />
-            40+ edited photos | Ideal for theatre & live shows
-          </p>
-        </details>
-
-        <details>
-          <summary>⏱️ Mini Performance Session – £70</summary>
-          <p>
-            30 mins of stage or backstage coverage<br />
-            15–20 edited images | Fast turnaround
-          </p>
-        </details>
-
-        <details>
-          <summary>👨‍👩‍👧 Family / Love Story – £120</summary>
-          <p>
-            1 hour outdoor or at-home session<br />
-            40+ edited images | Styling guidance | Great for prints
-          </p>
-        </details>
-
-        <details>
-          <summary>🧍‍♀️ Personal Portrait – £100</summary>
-          <p>
-            45 min shoot | Indoor or outdoor<br />
-            25+ artistic photos | Ideal for creatives
-          </p>
-        </details>
-
-        <details>
-          <summary>🔄 Creative / Artist Collaborations – Flexible</summary>
-          <p>
-            Open to dancers, choreographers, theatre directors, and creative
-            producers<br />
-            Symbolic or project-based pricing available
-          </p>
-        </details>
-
-        <p class="travel-note">
-          📍 Free travel within 20 miles of NG17 | £0.40/mile beyond
+      <!-- Contact -->
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <form id="contact-form" novalidate>
+          <input type="text" name="name" placeholder="Name*" required />
+          <input type="email" name="email" placeholder="Email*" required />
+          <input type="text" name="subject" placeholder="Subject / Event" />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Tell me about your event or session…"
+          ></textarea>
+          <button type="submit" class="btn">Send enquiry</button>
+          <p class="status" role="status" aria-live="polite"></p>
+        </form>
+        <p class="muted small">Custom quotes only. No fixed price list.</p>
+        <p class="muted small">
+          Or email me directly:
+          <a href="mailto:tetiana80@yahoo.com">tetiana80@yahoo.com</a> · +44
+          7467720136
         </p>
       </section>
     </main>
 
-    <footer id="contact">
-      <div class="footer-wrapper">
-        <div class="two-column-footer">
-          <div class="footer-left">
-            <h4>Contact</h4>
-            <a href="mailto:tetiana80@yahoo.com">tetiana80@yahoo.com</a><br />
-            <a href="tel:+44 7467720136">+44 7467720136</a>
-          </div>
-
-          <div class="footer-right">
-            <h4>Follow</h4>
-            <a href="https://www.instagram.com/vegeravisual" target="_blank"
-              >Instagram</a
-            ><br />
-            <a href="https://vegera.pixieset.com" target="_blank"
-              >Pixieset Portfolio</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 Vegera Visual</p>
-      </div>
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Vegera Visual</p>
+      <p>
+        <a
+          href="https://www.instagram.com/vegeravisual"
+          target="_blank"
+          rel="noopener"
+          >Instagram</a
+        >
+        ·
+        <a href="https://vegera.pixieset.com/" target="_blank" rel="noopener"
+          >Pixieset</a
+        >
+      </p>
     </footer>
+
+    <dialog id="lightbox">
+      <img alt="" /><button class="close" aria-label="Close">×</button>
+    </dialog>
+    <script src="/script.js" defer></script>
   </body>
-  <script>
-    const burger = document.querySelector(".burger");
-    const navMenu = document.querySelector(".nav-menu");
-
-    burger.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-    });
-  </script>
-  <script>
-    const scrollBtn = document.getElementById("scrollToTop");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollBtn.classList.add("show");
-      } else {
-        scrollBtn.classList.remove("show");
-      }
-    });
-
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    });
-  </script>
 </html>
