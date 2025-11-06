@@ -8,17 +8,19 @@
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
     <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./img/favicon_io/favicon-32x32.png"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/logoTV.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="icon" type="image/x-icon" href="./img/favicon_io/favicon.ico" />
   </head>
 
@@ -26,9 +28,10 @@
     <header class="site-nav">
       <a class="brand" href="/">
         <img
-          src="/img/logo.jpeg"
+          src="/img/Tetiana_Vegera_logo.jpeg"
           alt="Vegera Visual logo"
           class="brand__icon"
+          sizes="52x52"
         />
       </a>
 
@@ -36,7 +39,8 @@
         <a class="nav-link is-active" data-cat="performances">Performances</a>
         <a class="nav-link" data-cat="festivals">Festivals</a>
         <a class="nav-link" data-cat="family">Family/Individual</a>
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" data-cat="about">About</a>
+        <a class="nav-link" data-cat="contact">Contact</a>
       </nav>
       <button
         class="burger"
@@ -52,19 +56,11 @@
       <a class="nav-link is-active" data-cat="performances">Performances</a>
       <a class="nav-link" data-cat="festivals">Festivals</a>
       <a class="nav-link" data-cat="family">Family/Individual</a>
-      <a class="nav-link" href="#contact">Contact</a>
+      <a class="nav-link" data-cat="about">About</a>
+      <a class="nav-link" data-cat="contact">Contact</a>
     </nav>
 
     <main>
-      <!-- HERO -->
-      <section class="hero">
-        <h1>Live events. Movement. Real moments.</h1>
-        <p class="muted">
-          Nottinghamshire-based photographer focused on performance, dance
-          schools, theatre & portraits.
-        </p>
-      </section>
-
       <!-- GALLERIES -->
       <dialog id="lightbox">
         <img alt="" /><button class="close" aria-label="Close">×</button>
@@ -72,7 +68,7 @@
       <section id="galleries" class="gallery-wrap">
         <!-- Performances (твоя сцена/театр) -->
         <div
-          class="grid is-visible"
+          class="grid is-visible cat-section"
           data-cat="performances"
           aria-label="Performances gallery"
         >
@@ -114,7 +110,11 @@
           /></a>
         </div>
 
-        <div class="grid" data-cat="festivals" aria-label="Festivals show">
+        <div
+          class="grid cat-section"
+          data-cat="festivals"
+          aria-label="Festivals show"
+        >
           <a href="/img/festival1.jpg" class="tile"
             ><img
               src="/img/festival1.jpg"
@@ -178,7 +178,11 @@
         </div>
 
         <!-- Portraits (тимчасово 1–2 кадри зі сцени — заміниш портретами) -->
-        <div class="grid" data-cat="family" aria-label="Portraits gallery">
+        <div
+          class="grid cat-section"
+          data-cat="family"
+          aria-label="Portraits gallery"
+        >
           <a href="/img/family1.jpg" class="tile tall"
             ><img
               src="/img/family1.jpg"
@@ -285,20 +289,32 @@
       </section>
 
       <!-- About -->
-      <section class="about">
-        <p>
-          <strong>Vegera Visual</strong> — I photograph movement and connection:
-          theatre, dance schools, festivals, and real-life portraits. Minimal
-          direction, clean delivery, cinematic grading.
-        </p>
-        <p class="muted">
-          Based in Nottinghamshire · Available across the East Midlands
-        </p>
+      <section data-cat="about" class="cat-section">
+        <h1 class="about-title">About me</h1>
+        <div class="about">
+          <img
+            src="/img/myphoto.jpeg"
+            loading="lazy"
+            alt="myphoto"
+            class="about-photo"
+          />
+          <h2>
+            I’m a Nottinghamshire-based freelance photographer specialising in
+            live events, concerts, and performances. What inspires me most is
+            the raw emotion, light, and movement that make every show unique.
+            Through my lens, I aim to capture the energy and authenticity of
+            each moment — preserving not just the image, but the feeling behind
+            it. You can find most of my recent work on Instagram and Facebook,
+            and selected collections are showcased here on my portfolio page.
+            For bookings or collaborations, feel free to reach out via email or
+            social media.
+          </h2>
+        </div>
       </section>
 
       <!-- Contact -->
-      <section id="contact" class="contact">
-        <h2>Contact</h2>
+      <section id="contact" class="contact cat-section" data-cat="contact">
+        <h1>Contact</h1>
         <form
           id="contact-form"
           action="https://formspree.io/f/mgvlylol"
@@ -320,12 +336,12 @@
           <button type="submit" class="btn">Send enquiry</button>
           <p class="status" role="status" aria-live="polite"></p>
         </form>
-        <p class="muted small">Custom quotes only. No fixed price list.</p>
-        <p class="muted small">
+        <h2>Custom quotes only. No fixed price list.</h2>
+        <h2>
           Or email me directly:
           <a href="mailto:tetiana80@yahoo.com">tetiana80@yahoo.com</a> · +44
           7467720136
-        </p>
+        </h2>
         <script>
           if (location.hash === "#thanks") {
             const el = document.getElementById("thanks");

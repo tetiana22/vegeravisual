@@ -1,21 +1,33 @@
-/* ================== NAV: category tabs (desktop + mobile) ================== */
 const tabLinks = document.querySelectorAll(
   ".nav-link[data-cat], .m-link[data-cat]"
 );
-const grids = document.querySelectorAll(".grid[data-cat]");
+const sections = document.querySelectorAll(
+  ".grid[data-cat], section[data-cat]"
+); // всі секції
 
 function switchCat(cat) {
   tabLinks.forEach((x) =>
     x.classList.toggle("is-active", x.getAttribute("data-cat") === cat)
   );
-  grids.forEach((g) =>
-    g.classList.toggle("is-visible", g.getAttribute("data-cat") === cat)
+
+  sections.forEach((s) =>
+    s.classList.toggle("is-visible", s.getAttribute("data-cat") === cat)
   );
-  document
-    .getElementById("galleries")
-    ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  closeMobile(); // auto-close mobile menu after select
+
+  // Якщо обрана галерея, скролимо до галереї
+  if (cat === "performances" || cat === "festivals" || cat === "family") {
+    document
+      .getElementById("galleries")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    // Інакше скролимо до відповідної секції
+    const sec = document.querySelector(`section[data-cat="${cat}"]`);
+    sec?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  closeMobile();
 }
+
 tabLinks.forEach((l) => {
   l.addEventListener("click", (e) => {
     const cat = l.getAttribute("data-cat");
