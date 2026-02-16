@@ -1,6 +1,7 @@
 const tabLinks = document.querySelectorAll(
   ".nav-link[data-cat], .m-link[data-cat]"
 );
+
 const sections = document.querySelectorAll(
   ".grid[data-cat], section[data-cat]"
 ); // всі секції

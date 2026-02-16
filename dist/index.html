@@ -4,40 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vegera Visual</title>
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./img/favicon_io/favicon-32x32.png"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap"
-      rel="stylesheet"
-    />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/logoTV.png" />
     <link rel="icon" type="image/x-icon" href="./img/favicon_io/favicon.ico" />
-    <script type="module" crossorigin src="/assets/main-CdNIMybc.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-B80ZspqY.css">
+    <script type="module" crossorigin src="/assets/main-BdMyIlzw.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-iDx2cJKc.css">
   </head>
 
   <body>
     <header class="site-nav">
       <a class="brand" href="/">
         <img
-          src="/img/logo.jpeg"
+          src="/img/Tetiana_Vegera_logo.jpeg"
           alt="Vegera Visual logo"
           class="brand__icon"
+          sizes="52x52"
         />
       </a>
 
       <nav class="nav-links" aria-label="Primary">
         <a class="nav-link is-active" data-cat="performances">Performances</a>
         <a class="nav-link" data-cat="festivals">Festivals</a>
+        <a class="nav-link" data-cat="concerts">Concerts</a>
         <a class="nav-link" data-cat="family">Family/Individual</a>
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" data-cat="about">About</a>
+        <a class="nav-link" data-cat="contact">Contact</a>
       </nav>
       <button
         class="burger"
@@ -52,20 +48,13 @@
     <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile" hidden>
       <a class="nav-link is-active" data-cat="performances">Performances</a>
       <a class="nav-link" data-cat="festivals">Festivals</a>
+      <a class="nav-link" data-cat="concerts">Concerts</a>
       <a class="nav-link" data-cat="family">Family/Individual</a>
-      <a class="nav-link" href="#contact">Contact</a>
+      <a class="nav-link" data-cat="about">About</a>
+      <a class="nav-link" data-cat="contact">Contact</a>
     </nav>
 
     <main>
-      <!-- HERO -->
-      <section class="hero">
-        <h1>Live events. Movement. Real moments.</h1>
-        <p class="muted">
-          Nottinghamshire-based photographer focused on performance, dance
-          schools, theatre & portraits.
-        </p>
-      </section>
-
       <!-- GALLERIES -->
       <dialog id="lightbox">
         <img alt="" /><button class="close" aria-label="Close">×</button>
@@ -73,11 +62,11 @@
       <section id="galleries" class="gallery-wrap">
         <!-- Performances (твоя сцена/театр) -->
         <div
-          class="grid is-visible"
+          class="grid is-visible cat-section"
           data-cat="performances"
           aria-label="Performances gallery"
         >
-          <a href="/img/" class="tile"
+          <a href="./public/img/perfomence1.jpeg" class="tile"
             ><img
               src="/img/perfomence1.jpg"
               loading="lazy"
@@ -113,9 +102,49 @@
               loading="lazy"
               alt="Stage moment — duet"
           /></a>
+          <a href="/img/perfomence7.jpg" class="tile"
+            ><img
+              src="/img/perfomence7.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence8.jpg" class="tile"
+            ><img
+              src="/img/perfomence8.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence9.jpg" class="tile"
+            ><img
+              src="/img/perfomence9.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence10.jpg" class="tile"
+            ><img
+              src="/img/perfomence10.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence11.jpg" class="tile"
+            ><img
+              src="/img/perfomence11.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/perfomence12.jpg" class="tile"
+            ><img
+              src="/img/perfomence12.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
         </div>
 
-        <div class="grid" data-cat="festivals" aria-label="Festivals show">
+        <div
+          class="grid cat-section"
+          data-cat="festivals"
+          aria-label="Festivals show"
+        >
           <a href="/img/festival1.jpg" class="tile"
             ><img
               src="/img/festival1.jpg"
@@ -146,12 +175,6 @@
               loading="lazy"
               alt="Live lights silhouette"
           /></a>
-          <a href="/img/festival6.jpg" class="tile"
-            ><img
-              src="/img/festival6.jpg"
-              loading="lazy"
-              alt="Live lights silhouette"
-          /></a>
           <a href="/img/festival7.jpg" class="tile"
             ><img
               src="/img/festival7.jpg"
@@ -177,9 +200,97 @@
               alt="Live lights silhouette"
           /></a>
         </div>
+        <div
+          class="grid cat-section"
+          data-cat="concerts"
+          aria-label="Concerts gallery"
+        >
+          <a href="/img/concert1.jpg" class="tile"
+            ><img
+              src="/img/concert1.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert2.jpg" class="tile"
+            ><img
+              src="/img/concert2.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert3.jpg" class="tile"
+            ><img
+              src="/img/concert3.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert4.jpg" class="tile"
+            ><img
+              src="/img/concert4.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert5.jpg" class="tile"
+            ><img
+              src="/img/concert5.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert6.jpg" class="tile"
+            ><img
+              src="/img/concert6.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert7.jpg" class="tile"
+            ><img
+              src="/img/concert7.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert8.jpg" class="tile"
+            ><img
+              src="/img/concert8.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert9.jpg" class="tile"
+            ><img
+              src="/img/concert9.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert10.jpg" class="tile"
+            ><img
+              src="/img/concert10.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert11.jpg" class="tile"
+            ><img
+              src="/img/concert11.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert12.jpg" class="tile"
+            ><img
+              src="/img/concert12.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+          <a href="/img/concert13.jpg" class="tile"
+            ><img
+              src="/img/concert13.jpg"
+              loading="lazy"
+              alt="Stage moment — duet"
+          /></a>
+        </div>
 
         <!-- Portraits (тимчасово 1–2 кадри зі сцени — заміниш портретами) -->
-        <div class="grid" data-cat="family" aria-label="Portraits gallery">
+        <div
+          class="grid cat-section"
+          data-cat="family"
+          aria-label="Portraits gallery"
+        >
           <a href="/img/family1.jpg" class="tile tall"
             ><img
               src="/img/family1.jpg"
@@ -210,33 +321,10 @@
               loading="lazy"
               alt="Intimate moment on stage"
           /></a>
-          <a href="/img/family5.jpg" class="tile tall"
-            ><img
-              src="/img/family5.jpg"
-              loading="lazy"
-              alt="Intimate moment on stage"
-          /></a>
-          <a href="/img/family7.jpg" class="tile tall"
-            ><img
-              src="/img/family7.jpg"
-              loading="lazy"
-              alt="Intimate moment on stage"
-          /></a>
+
           <a href="/img/family8.jpg" class="tile tall"
             ><img
               src="/img/family8.jpg"
-              loading="lazy"
-              alt="Intimate moment on stage"
-          /></a>
-          <a href="/img/family9.jpg" class="tile tall"
-            ><img
-              src="/img/family9.jpg"
-              loading="lazy"
-              alt="Intimate moment on stage"
-          /></a>
-          <a href="/img/family10.jpg" class="tile tall"
-            ><img
-              src="/img/family10.jpg"
               loading="lazy"
               alt="Intimate moment on stage"
           /></a>
@@ -244,20 +332,32 @@
       </section>
 
       <!-- About -->
-      <section class="about">
-        <p>
-          <strong>Vegera Visual</strong> — I photograph movement and connection:
-          theatre, dance schools, festivals, and real-life portraits. Minimal
-          direction, clean delivery, cinematic grading.
-        </p>
-        <p class="muted">
-          Based in Nottinghamshire · Available across the East Midlands
-        </p>
+      <section data-cat="about" class="cat-section">
+        <h1 class="about-title">About me</h1>
+        <div class="about">
+          <img
+            src="/img/myphoto.jpeg"
+            loading="lazy"
+            alt="myphoto"
+            class="about-photo"
+          />
+          <h2>
+            I’m a Nottinghamshire-based freelance photographer specialising in
+            live events, concerts, and performances. What inspires me most is
+            the raw emotion, light, and movement that make every show unique.
+            Through my lens, I aim to capture the energy and authenticity of
+            each moment — preserving not just the image, but the feeling behind
+            it. You can find most of my recent work on Instagram and Facebook,
+            and selected collections are showcased here on my portfolio page.
+            For bookings or collaborations, feel free to reach out via email or
+            social media.
+          </h2>
+        </div>
       </section>
 
       <!-- Contact -->
-      <section id="contact" class="contact">
-        <h2>Contact</h2>
+      <section id="contact" class="contact cat-section" data-cat="contact">
+        <h1>Contact</h1>
         <form
           id="contact-form"
           action="https://formspree.io/f/mgvlylol"
@@ -279,12 +379,12 @@
           <button type="submit" class="btn">Send enquiry</button>
           <p class="status" role="status" aria-live="polite"></p>
         </form>
-        <p class="muted small">Custom quotes only. No fixed price list.</p>
-        <p class="muted small">
+        <h2>Custom quotes only. No fixed price list.</h2>
+        <h2>
           Or email me directly:
           <a href="mailto:tetiana80@yahoo.com">tetiana80@yahoo.com</a> · +44
           7467720136
-        </p>
+        </h2>
         <script>
           if (location.hash === "#thanks") {
             const el = document.getElementById("thanks");
