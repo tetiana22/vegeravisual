@@ -1,33 +1,34 @@
+/* ================== TAB NAVIGATION ================== */
 const tabLinks = document.querySelectorAll(
   ".nav-link[data-cat], .m-link[data-cat]"
 );
-
-const sections = document.querySelectorAll(
-  ".grid[data-cat], section[data-cat]"
-); // всі секції
+const sections = document.querySelectorAll(".cat-section");
 
 function switchCat(cat) {
+  // Toggle Active States for Navigation
   tabLinks.forEach((x) =>
     x.classList.toggle("is-active", x.getAttribute("data-cat") === cat)
   );
 
-  sections.forEach((s) =>
-    s.classList.toggle("is-visible", s.getAttribute("data-cat") === cat)
-  );
+  // Toggle Section Visibility
+  sections.forEach((s) => {
+    if (s.getAttribute("data-cat") === cat) {
+      s.classList.add("is-visible");
+    } else {
+      s.classList.remove("is-visible");
+    }
+  });
 
-  // Якщо обрана галерея, скролимо до галереї
-  if (cat === "performances" || cat === "festivals" || cat === "family") {
-    document
-      .getElementById("galleries")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  } else {
-    // Інакше скролимо до відповідної секції
-    const sec = document.querySelector(`section[data-cat="${cat}"]`);
-    sec?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+  // Smooth scroll up to top of main area
+  document
+    .querySelector("main")
+    ?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   closeMobile();
 }
+
+// Global scope attachment for inline HTML onclick calls
+window.switchCat = switchCat;
 
 tabLinks.forEach((l) => {
   l.addEventListener("click", (e) => {
@@ -39,7 +40,7 @@ tabLinks.forEach((l) => {
   });
 });
 
-/* ================== HEADER: burger + mobile drawer ================== */
+/* ================== MOBILE DRAWER ================== */
 const burger = document.querySelector(".burger");
 const mobileMenu = document.getElementById("mobile-menu");
 const backdrop = document.querySelector(".backdrop");
@@ -48,54 +49,40 @@ function openMobile() {
   if (!burger || !mobileMenu || !backdrop) return;
   mobileMenu.hidden = false;
   backdrop.hidden = false;
-  requestAnimationFrame(() => mobileMenu.classList.add("open")); // start slide-in
-  burger.classList.add("is-open");
+  requestAnimationFrame(() => mobileMenu.classList.add("open"));
   burger.setAttribute("aria-expanded", "true");
-  document.body.classList.add("no-scroll");
-  document.addEventListener("keydown", escClose);
+  document.body.style.overflow = "hidden";
 }
+
 function closeMobile() {
   if (!burger || !mobileMenu || !backdrop) return;
   mobileMenu.classList.remove("open");
-  burger.classList.remove("is-open");
   burger.setAttribute("aria-expanded", "false");
-  document.removeEventListener("keydown", escClose);
   setTimeout(() => {
     mobileMenu.hidden = true;
     backdrop.hidden = true;
-    document.body.classList.remove("no-scroll");
-  }, 250); // keep in sync with CSS transition
-}
-function escClose(e) {
-  if (e.key === "Escape") closeMobile();
+    document.body.style.overflow = "";
+  }, 250);
 }
 
 burger?.addEventListener("click", () => {
-  burger.classList.contains("is-open") ? closeMobile() : openMobile();
+  mobileMenu.classList.contains("open") ? closeMobile() : openMobile();
 });
 backdrop?.addEventListener("click", closeMobile);
 
-// safety: click anywhere outside the drawer also closes it (in case backdrop is covered)
-document.addEventListener("click", (e) => {
-  if (mobileMenu?.hidden) return;
-  const insideMenu = mobileMenu.contains(e.target);
-  const onBurger = burger?.contains(e.target);
-  if (!insideMenu && !onBurger) closeMobile();
-});
-
-// auto-close when switching to desktop
 window.addEventListener("resize", () => {
   if (window.innerWidth >= 768) closeMobile();
 });
 
 /* ================== FOOTER YEAR ================== */
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ================== LIGHTBOX (native <dialog>) ================== */
+/* ================== LIGHTBOX ================== */
 const lb = document.getElementById("lightbox");
 const lbImg = lb?.querySelector("img");
 
-document.querySelectorAll(".tile").forEach((a) => {
+document.querySelectorAll(".tile:not(.video-tile)").forEach((a) => {
   a.addEventListener("click", (e) => {
     e.preventDefault();
     const img = a.querySelector("img");
@@ -106,61 +93,29 @@ document.querySelectorAll(".tile").forEach((a) => {
   });
 });
 
-// close by X button
 lb?.querySelector(".close")?.addEventListener("click", () => lb.close());
-
-// close by clicking backdrop/empty area inside dialog
 lb?.addEventListener("click", (e) => {
-  if (e.target === lb) {
-    lb.close();
-    return;
-  }
-  const r = lb.getBoundingClientRect();
-  const outside =
-    e.clientX < r.left ||
-    e.clientX > r.right ||
-    e.clientY < r.top ||
-    e.clientY > r.bottom;
-  if (outside) lb.close();
+  if (e.target === lb) lb.close();
 });
 
-/* ================== CONTACT FORM -> mailto ================== */
-const form = document.getElementById("contact-form");
-const status = document.querySelector(".status");
+/* ================== TOGGLE WEDDING STORIES ================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const cardChloe = document.getElementById("toggle-chloe");
+  const galleryChloe = document.getElementById("gallery-chloe");
 
-form?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const fd = new FormData(form);
-  if (!fd.get("name") || !fd.get("email")) {
-    status.textContent = "Please fill required fields.";
-    return;
-  }
-  const subject = encodeURIComponent(fd.get("subject") || "Photo enquiry");
-  const body = encodeURIComponent(
-    `Name: ${fd.get("name")}
-Email: ${fd.get("email")}
-Subject: ${fd.get("subject") || ""}
+  if (cardChloe && galleryChloe) {
+    cardChloe.addEventListener("click", (e) => {
+      e.stopPropagation();
 
-Message:
-${fd.get("message") || ""}? (From Vegera Visual website)`
-  );
-  window.location.href = `mailto:tetiana80@yahoo.com?subject=${subject}&body=${body}`;
-  status.textContent =
-    "Opening email app… If nothing happens, email me directly.";
-});
+      // Перемикаємо клас приховування
+      galleryChloe.classList.toggle("is-hidden");
 
-/* ================== OPTIONAL: reveal on scroll ================== */
-const io = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        io.unobserve(e.target);
+      // Змінюємо текст на кнопці
+      const btn = cardChloe.querySelector(".view-story-btn");
+      if (btn) {
+        const isHidden = galleryChloe.classList.contains("is-hidden");
+        btn.textContent = isHidden ? "View Story ↓" : "Close Story ↑";
       }
     });
-  },
-  { threshold: 0.12 }
-);
-document
-  .querySelectorAll(".tile, .contact, .about, .hero")
-  .forEach((el) => io.observe(el));
+  }
+});
