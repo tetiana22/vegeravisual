@@ -1,45 +1,3 @@
-/* ================== TAB NAVIGATION ================== */
-const tabLinks = document.querySelectorAll(
-  ".nav-link[data-cat], .m-link[data-cat]"
-);
-const sections = document.querySelectorAll(".cat-section");
-
-function switchCat(cat) {
-  // Toggle Active States for Navigation
-  tabLinks.forEach((x) =>
-    x.classList.toggle("is-active", x.getAttribute("data-cat") === cat)
-  );
-
-  // Toggle Section Visibility
-  sections.forEach((s) => {
-    if (s.getAttribute("data-cat") === cat) {
-      s.classList.add("is-visible");
-    } else {
-      s.classList.remove("is-visible");
-    }
-  });
-
-  // Smooth scroll up to top of main area
-  document
-    .querySelector("main")
-    ?.scrollIntoView({ behavior: "smooth", block: "start" });
-
-  closeMobile();
-}
-
-// Global scope attachment for inline HTML onclick calls
-window.switchCat = switchCat;
-
-tabLinks.forEach((l) => {
-  l.addEventListener("click", (e) => {
-    const cat = l.getAttribute("data-cat");
-    if (cat) {
-      e.preventDefault();
-      switchCat(cat);
-    }
-  });
-});
-
 /* ================== MOBILE DRAWER ================== */
 const burger = document.querySelector(".burger");
 const mobileMenu = document.getElementById("mobile-menu");
@@ -74,6 +32,48 @@ window.addEventListener("resize", () => {
   if (window.innerWidth >= 768) closeMobile();
 });
 
+/* ================== TAB NAVIGATION ================== */
+const tabLinks = document.querySelectorAll(
+  ".nav-link[data-cat], .m-link[data-cat]"
+);
+const sections = document.querySelectorAll(".cat-section");
+
+function switchCat(cat) {
+  // Активні класи для навігації
+  tabLinks.forEach((x) =>
+    x.classList.toggle("is-active", x.getAttribute("data-cat") === cat)
+  );
+
+  // Перемикання видимості секцій
+  sections.forEach((s) => {
+    if (s.getAttribute("data-cat") === cat) {
+      s.classList.add("is-visible");
+    } else {
+      s.classList.remove("is-visible");
+    }
+  });
+
+  // Плавна прокрутка до початку контенту
+  document
+    .querySelector("main")
+    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  closeMobile();
+}
+
+// Експорт у глобальну область для onclick="switchCat(...)" у HTML
+window.switchCat = switchCat;
+
+tabLinks.forEach((l) => {
+  l.addEventListener("click", (e) => {
+    const cat = l.getAttribute("data-cat");
+    if (cat) {
+      e.preventDefault();
+      switchCat(cat);
+    }
+  });
+});
+
 /* ================== FOOTER YEAR ================== */
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -82,15 +82,18 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 const lb = document.getElementById("lightbox");
 const lbImg = lb?.querySelector("img");
 
-document.querySelectorAll(".tile:not(.video-tile)").forEach((a) => {
-  a.addEventListener("click", (e) => {
-    e.preventDefault();
-    const img = a.querySelector("img");
-    if (!lb || !lbImg) return;
-    lbImg.src = a.getAttribute("href") || img?.src || "";
-    lbImg.alt = img?.alt || "";
-    lb.showModal();
-  });
+// Використовуємо делегування подій для стабільній роботи Lightbox
+document.addEventListener("click", (e) => {
+  const tile = e.target.closest(".tile:not(.video-tile)");
+  if (!tile) return;
+
+  e.preventDefault();
+  const img = tile.querySelector("img");
+  if (!lb || !lbImg) return;
+
+  lbImg.src = tile.getAttribute("href") || img?.src || "";
+  lbImg.alt = img?.alt || "";
+  lb.showModal();
 });
 
 lb?.querySelector(".close")?.addEventListener("click", () => lb.close());
@@ -107,10 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
     cardChloe.addEventListener("click", (e) => {
       e.stopPropagation();
 
-      // Перемикаємо клас приховування
+      // Перемикання видимості галереї
       galleryChloe.classList.toggle("is-hidden");
 
-      // Змінюємо текст на кнопці
+      // Зміна тексту кнопки
       const btn = cardChloe.querySelector(".view-story-btn");
       if (btn) {
         const isHidden = galleryChloe.classList.contains("is-hidden");
